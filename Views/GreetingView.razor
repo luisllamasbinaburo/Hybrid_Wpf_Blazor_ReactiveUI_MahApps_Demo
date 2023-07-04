@@ -1,0 +1,28 @@
+﻿@page "/greetings"
+@inject GreetingViewModel vm
+
+<div>
+    <h1>ReactiveUI + Razor = 💖</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name">@vm.Greeting</label>
+                <input id="name"
+                       type="text"
+                       class="form-control"
+                       placeholder="Enter name"
+                       @bind-value="vm.Name"
+                       @bind-value:event="oninput" />
+                <small id="emailHelp"
+                       class="form-text text-muted">
+                    Please, enter your name.
+                </small>
+                <button class="btn btn-info"
+                        disabled="@(!vm.CanClear)"
+                        @onclick="@vm.Clear">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
